@@ -1,0 +1,14 @@
+﻿@{
+    ViewData["Title"] = "Portal Książkowy - Witaj!";
+}
+
+<div class="container text-center mt-5">
+    <h1>Witaj, @User.Identity.Name!</h1>
+    <p>Co chciałbyś zrobić dzisiaj?</p>
+
+    <div class="mt-4">
+        <a href="@Url.Action("Index", "Book")" class="btn btn-success btn-lg mx-2">Przeglądaj Książki</a>
+        <a href="@Url.Action("Recommendations", "Book")" class="btn btn-info btn-lg mx-2">Moje Rekomendacje</a>
+        <a href="@Url.Action("Logout", "Account")" class="btn btn-danger btn-lg mx-2">Wyloguj</a>
+    </div>
+</div>

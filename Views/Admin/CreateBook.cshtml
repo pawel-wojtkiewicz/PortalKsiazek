@@ -1,0 +1,29 @@
+﻿@model PortalKsiazkowy.Models.Book
+
+@{
+    ViewData["Title"] = "Dodaj Książkę";
+}
+
+<div class="container mt-5">
+    <h2>Dodaj Książkę</h2>
+    <form asp-action="CreateBook" method="post">
+        <div class="form-group">
+            <label for="Title">Tytuł</label>
+            <input type="text" class="form-control" id="Title" name="Title" required />
+        </div>
+        <div class="form-group">
+            <label for="Author">Autor</label>
+            <input type="text" class="form-control" id="Author" name="Author" required />
+        </div>
+        <div class="form-group">
+            <label for="Genre">Gatunek</label>
+            <input type="text" class="form-control" id="Genre" name="Genre" required />
+        </div>
+        <div class="form-group">
+            <label for="PublishedDate">Data Publikacji</label>
+            <input type="date" class="form-control" id="PublishedDate" name="PublishedDate" required />
+        </div>
+        <button type="submit" class="btn btn-primary mt-3">Dodaj</button>
+        <a href="@Url.Action("ManageBooks", "Admin")" class="btn btn-secondary mt-3">Anuluj</a>
+    </form>
+</div>

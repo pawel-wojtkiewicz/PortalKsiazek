@@ -1,0 +1,25 @@
+﻿@model IEnumerable<PortalKsiazkowy.Models.Book>
+
+@{
+    ViewData["Title"] = "Moje Rekomendacje";
+}
+
+<div class="container">
+    <h1 class="my-4">Moje rekomendacje</h1>
+    <div class="row">
+        @foreach (var book in Model)
+        {
+            <div class="col-md-4">
+                <div class="card mb-4">                    
+                    <div class="card-body">
+                        <h5 class="card-title">@book.Title</h5>
+                        <p class="card-text">Autor: @book.Author</p>
+                        <p class="card-text">Gatunek: @book.Genre</p>
+                        <p class="card-text">Średnia ocena: @book.AverageRating.ToString("F1")</p>
+                        <a href="@Url.Action("Details", "Book", new { id = book.Id })" class="btn btn-primary">Zobacz szczegóły</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

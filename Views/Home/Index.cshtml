@@ -1,0 +1,14 @@
+﻿@{
+    ViewData["Title"] = "Strona Główna";
+}
+
+<div class="container text-center">
+    <h1 class="display-4">Witamy na Portalu Książkowym</h1>
+    <p class="lead">Odkryj świat książek. Zaloguj się, zarejestruj lub przeglądaj książki!</p>
+
+    <div class="btn-group">
+        <a href="@Url.Action("Login", "Account")" class="btn btn-primary">Zaloguj się</a>
+        <a href="@Url.Action("Register", "Account")" class="btn btn-success">Zarejestruj się</a>
+        <a href="@Url.Action("Index", "Book")" class="btn btn-info">Przeglądaj książki</a>
+    </div>
+</div>

@@ -1,0 +1,34 @@
+﻿@{
+    ViewData["Title"] = "Zarejestruj się";
+}
+
+<div class="container">
+    <h1 class="my-4 text-center">Zarejestruj się</h1>
+
+    <div class="col-md-6 mx-auto">
+        <form asp-action="Register" method="post">
+            <div class="mb-3">
+                <label for="Username" class="form-label">Nazwa użytkownika</label>
+                <input type="text" class="form-control" id="Username" name="username" required />
+            </div>
+
+            <div class="mb-3">
+                <label for="Password" class="form-label">Hasło</label>
+                <input type="password" class="form-control" id="Password" name="password" required />
+            </div>
+
+            <div class="mb-3">
+                <label for="ConfirmPassword" class="form-label">Potwierdź hasło</label>
+                <input type="password" class="form-control" id="ConfirmPassword" name="confirmPassword" required />
+            </div>
+
+            <div class="mb-3">
+                <button type="submit" class="btn btn-success w-100">Zarejestruj się</button>
+            </div>
+
+            <div class="text-center">
+                <p>Masz już konto? <a href="@Url.Action("Login", "Account")">Zaloguj się</a></p>
+            </div>
+        </form>
+    </div>
+</div>

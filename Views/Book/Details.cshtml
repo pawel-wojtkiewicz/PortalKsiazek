@@ -1,0 +1,29 @@
+﻿@model PortalKsiazkowy.Models.Book
+
+@{
+    ViewData["Title"] = "Szczegóły Książki";
+}
+
+<div class="container mt-5">
+    <h2>@Model.Title</h2>
+    <p><strong>Autor:</strong> @Model.Author</p>
+    <p><strong>Gatunek:</strong> @Model.Genre</p>
+    <p><strong>Data publikacji:</strong> @Model.PublishedDate.ToShortDateString()</p>
+    <p><strong>Średnia ocena:</strong> @Model.AverageRating.ToString("F1") (Liczba głosów: @Model.RatingsCount)</p>
+    
+    @if (User.Identity.IsAuthenticated)
+    {
+        <div class="mt-4">
+            <form asp-action="Rate" method="post">
+                <input type="hidden" name="id" value="@Model.Id" />
+                <div class="form-group">
+                    <label for="rating">Oceń tę książkę (1-6):</label>
+                    <input type="number" id="rating" name="rating" class="form-control" min="1" max="6" required />
+                </div>
+                <button type="submit" class="btn btn-primary mt-2">Oceń</button>
+            </form>
+        </div>
+    }
+
+   
+</div>

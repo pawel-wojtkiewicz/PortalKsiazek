@@ -1,0 +1,15 @@
+﻿@model PortalKsiazkowy.Models.Book
+
+<h1>Usuń książkę</h1>
+
+<h3>Jesteś pewien, że chcesz usunąć książkę "@Model.Title" autorstwa @Model.Author?</h3>
+
+<p>Gatunek: @Model.Genre</p>
+<p>Data publikacji: @Model.PublishedDate.ToShortDateString()</p>
+
+<!-- Usunięto ocenę -->
+<form asp-action="Delete" method="post">
+    <input type="hidden" name="id" value="@Model.Id" />
+    <button type="submit" class="btn btn-danger">Usuń</button>
+    <a href="@Url.Action("Index", "Book")" class="btn btn-secondary">Anuluj</a>
+</form>

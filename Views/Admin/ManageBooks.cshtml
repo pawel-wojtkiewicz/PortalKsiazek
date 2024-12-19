@@ -1,0 +1,36 @@
+﻿@model IEnumerable<PortalKsiazkowy.Models.Book>
+
+@{
+    ViewData["Title"] = "Zarządzaj książkami";
+}
+
+<div class="container">
+    <h1 class="my-4">Zarządzaj książkami</h1>
+    <a href="@Url.Action("Create", "Book")" class="btn btn-success mb-4">Dodaj nową książkę</a>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Tytuł</th>
+                <th>Autor</th>
+                <th>Gatunek</th>
+                <th>Ocena</th>
+                <th>Akcje</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var book in Model)
+            {
+                <tr>
+                    <td>@book.Title</td>
+                    <td>@book.Author</td>
+                    <td>@book.Genre</td>
+                    <td>@book.AverageRating.ToString("F1")</td>
+                    <td>
+                        <a href="@Url.Action("Edit", "Book", new { id = book.Id })" class="btn btn-warning">Edytuj</a>
+                        <a href="@Url.Action("Delete", "Book", new { id = book.Id })" class="btn btn-danger">Usuń</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
